@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="https://telegra.ph/file/5767faba01c3745451753.jpg" alt="PSYCHO BOTZ">
+  <img src="https://graph.org/file/1644c5fbdd21354abb336.jpg" alt="MxA Bots">
 </p>
 <h1 align="center">
-  <b>WEDNESDAY FILTER BOT</b>
+  <b>MxA FILTER BOT</b>
 </h1>
 
 <p align="center">
