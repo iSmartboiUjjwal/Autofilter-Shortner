@@ -9,6 +9,8 @@ URLEARN_API = os.environ.get("URLEARN_API", "8e88b53e73f15d37c396c6e97e388e86356
 CUTTLY_API = os.environ.get("CUTTLY_API", "f64dffbde033b6c307387dd50b7c76e505f1c")
 SHORTCM_API = os.environ.get("SHORTCM_API", "pk_...NIZv")
 GPLINKS_API = os.environ.get("GPLINKS_API", "008ccaedd6061ad1948838f410947603de9007a7")
+SHORTURLLINK_API = os.environ.get("SHORTURLLINK_API", "0aad30f601b7b8894b4f62da77fed42878712ddc")
+
 
 reply_markup = InlineKeyboardMarkup(
         [[
@@ -158,8 +160,19 @@ async def short(link):
         url = s.nullpointer.short(link)
         shorten_urls += f"\n**0x0.st :-** {url}"
     except Exception as error:
-        print(f"NullPointer error :- {error}")
-    
+        print(f"NullPointer error :- {error}") 
+
+    # Shorturllink shorten
+        api_url = "https://shorturllink.in/api"
+        params = {'api': SHORTURLLINK_API, 'url': link}
+        async with aiohttp.ClientSession() as session:
+            async with session.get(api_url, params=params, raise_for_status=True) as response:
+                data = await response.json()
+                url = data["shortenedUrl"]
+                shorten_urls += f"\n**shorturllink.in :-** {url}"
+    except Exception as error:
+        print(f"shorturllink error :- {error}")
+
     # GPLinks shorten
     try:
         api_url = "https://gplinks.in/api"
